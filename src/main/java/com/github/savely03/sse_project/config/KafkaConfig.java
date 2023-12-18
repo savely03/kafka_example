@@ -21,12 +21,8 @@ public class KafkaConfig {
     @Bean
     public ConsumerFactory<String, DataTest> consumerFactory() {
         Map<String, Object> props = new HashMap<>();
-        props.put(
-                ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                "localhost:29092");
-        props.put(
-                ConsumerConfig.GROUP_ID_CONFIG,
-                "group-test");
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:29092");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG,"group-test");
         return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), new JsonDeserializer<>(DataTest.class));
     }
 
